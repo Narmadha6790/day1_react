@@ -1,0 +1,51 @@
+ReactDOM.render(
+  <div>
+    <h1>Batman</h1>
+    <h1>Iron Man</h1>
+    <h1>Nicolas Cage</h1>
+    <h1>Mega Man</h1>
+  </div>,
+  destination
+)
+function test1(foo, ...args) {
+    let [bar, baz] = args;
+ 
+    for(let arg of args) {
+        let bar = 22;
+        console.log(`arg: ${arg} bar: ${bar}`);
+    }
+ 
+    console.log(`done: ${bar} :: ${baz}`);
+}
+ 
+module.exports = test1;
+
+function makeAnimalClass(legs) {
+  let AnimalClass;
+  
+  if (legs > 2) {
+    class Animal {
+      constructor(name) {
+        this.name = name;
+        this.legType = 'multiped';
+      }
+    }
+    
+    AnimalClass = Animal;
+  } else {
+    class Animal {
+      constructor(name) {
+        this.name = name;
+        this.legType = 'biped';
+      }
+    }
+    
+    AnimalClass = Animal;
+  }
+  
+  return AnimalClass;
+}
+ 
+var Animal = makeAnimalClass(4);
+var dog = new Animal('dog');
+console.log(dog); // {"name":"dog","legType":"multiped"}

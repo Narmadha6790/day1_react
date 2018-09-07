@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+        #container {
+            padding: 50px;
+            background-color: beige;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+
+       
+    class Card extends React.Component{
+        render(){
+            var cardStyle={
+                height:"200px",
+                width:"150px",
+                padding:0,
+                backgroundColor:"#FFF",
+                filter:"drop-shadow(0px 0px 5px #666)" ,
+                WebkitFilter:"drop-shadow(0px 0px 5px #666)"
+            };
+            return(
+                <div style={cardStyle}>
+                <Square color={this.props.color}/>
+                <Label color={this.props.color}/>
+                <Label/>
+                </div>
+            );
+        }
+    }
+    class Square extends React.Component{
+        render(){
+            var squareStyle={
+                    height:"150px",
+                    backgroundColor:this.props.color,
+                    
+            };
+            return(
+                <div style={squareStyle}>
+                </div>
+            );
+        }
+    }
+
+    class Label extends React.Component{
+        render(){
+            var labelStyle={
+                fontFamily:"sans-serif",
+                fontWeight:"bold",
+                padding:"13px",
+                margin:0
+            };
+            return(
+                <p style={labelStyle}>{this.props.color}</p> 
+            );
+        }
+    }
+
+            ReactDOM.render(
+                <div>
+                        < Card color="#FF6663"/> <br/>
+                        < Card color="#3498DB"/> <br/>
+                        < Card color="#82E0AA"/>  <br/>
+                        < Card color="#EC7063"/> <br/>
+                        < Card color="#AF7AC5"/> <br/>
+                        < Card color="#FF6663"/> <br/>
+                        
+                </div>,document.querySelector("#container")
+            );
+            </script>
+</body>
+
+</html>
